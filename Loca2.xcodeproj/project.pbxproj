@@ -18,6 +18,11 @@
 		ADA108C9173D03E7002B882F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA108C8173D03E7002B882F /* Default-568h@2x.png */; };
 		ADA108CC173D03E7002B882F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADA108CA173D03E7002B882F /* MainStoryboard.storyboard */; };
 		ADA108CF173D03E7002B882F /* VBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA108CE173D03E7002B882F /* VBViewController.m */; };
+		ADA108D6173D0456002B882F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA108D5173D0456002B882F /* CoreLocation.framework */; };
+		ADA108D8173D045C002B882F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADA108D7173D045C002B882F /* MapKit.framework */; };
+		ADA108DA173D06FB002B882F /* Regions.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADA108D9173D06FB002B882F /* Regions.plist */; };
+		ADA108DD173D0E4A002B882F /* VBLog.m in Sources */ = {isa = PBXBuildFile; fileRef = ADA108DC173D0E4A002B882F /* VBLog.m */; };
+		ADA108E1173D1398002B882F /* Piano Riff Long.m4r in Resources */ = {isa = PBXBuildFile; fileRef = ADA108E0173D1397002B882F /* Piano Riff Long.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,12 @@
 		ADA108CB173D03E7002B882F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		ADA108CD173D03E7002B882F /* VBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VBViewController.h; sourceTree = "<group>"; };
 		ADA108CE173D03E7002B882F /* VBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBViewController.m; sourceTree = "<group>"; };
+		ADA108D5173D0456002B882F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ADA108D7173D045C002B882F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		ADA108D9173D06FB002B882F /* Regions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Regions.plist; sourceTree = "<group>"; };
+		ADA108DB173D0E4A002B882F /* VBLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VBLog.h; sourceTree = "<group>"; };
+		ADA108DC173D0E4A002B882F /* VBLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VBLog.m; sourceTree = "<group>"; };
+		ADA108E0173D1397002B882F /* Piano Riff Long.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Piano Riff Long.m4r"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADA108D8173D045C002B882F /* MapKit.framework in Frameworks */,
+				ADA108D6173D0456002B882F /* CoreLocation.framework in Frameworks */,
 				ADA108B3173D03E7002B882F /* UIKit.framework in Frameworks */,
 				ADA108B5173D03E7002B882F /* Foundation.framework in Frameworks */,
 				ADA108B7173D03E7002B882F /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +86,8 @@
 		ADA108B1173D03E7002B882F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ADA108D7173D045C002B882F /* MapKit.framework */,
+				ADA108D5173D0456002B882F /* CoreLocation.framework */,
 				ADA108B2173D03E7002B882F /* UIKit.framework */,
 				ADA108B4173D03E7002B882F /* Foundation.framework */,
 				ADA108B6173D03E7002B882F /* CoreGraphics.framework */,
@@ -83,11 +98,12 @@
 		ADA108B8173D03E7002B882F /* Loca2 */ = {
 			isa = PBXGroup;
 			children = (
+				ADA108DE173D0E51002B882F /* Log */,
+				ADA108DF173D0E55002B882F /* Controllers */,
 				ADA108C1173D03E7002B882F /* VBAppDelegate.h */,
 				ADA108C2173D03E7002B882F /* VBAppDelegate.m */,
 				ADA108CA173D03E7002B882F /* MainStoryboard.storyboard */,
-				ADA108CD173D03E7002B882F /* VBViewController.h */,
-				ADA108CE173D03E7002B882F /* VBViewController.m */,
+				ADA108E0173D1397002B882F /* Piano Riff Long.m4r */,
 				ADA108B9173D03E7002B882F /* Supporting Files */,
 			);
 			path = Loca2;
@@ -103,8 +119,27 @@
 				ADA108C4173D03E7002B882F /* Default.png */,
 				ADA108C6173D03E7002B882F /* Default@2x.png */,
 				ADA108C8173D03E7002B882F /* Default-568h@2x.png */,
+				ADA108D9173D06FB002B882F /* Regions.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ADA108DE173D0E51002B882F /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				ADA108DB173D0E4A002B882F /* VBLog.h */,
+				ADA108DC173D0E4A002B882F /* VBLog.m */,
+			);
+			name = Log;
+			sourceTree = "<group>";
+		};
+		ADA108DF173D0E55002B882F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADA108CD173D03E7002B882F /* VBViewController.h */,
+				ADA108CE173D03E7002B882F /* VBViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +199,8 @@
 				ADA108C7173D03E7002B882F /* Default@2x.png in Resources */,
 				ADA108C9173D03E7002B882F /* Default-568h@2x.png in Resources */,
 				ADA108CC173D03E7002B882F /* MainStoryboard.storyboard in Resources */,
+				ADA108DA173D06FB002B882F /* Regions.plist in Resources */,
+				ADA108E1173D1398002B882F /* Piano Riff Long.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +214,7 @@
 				ADA108BF173D03E7002B882F /* main.m in Sources */,
 				ADA108C3173D03E7002B882F /* VBAppDelegate.m in Sources */,
 				ADA108CF173D03E7002B882F /* VBViewController.m in Sources */,
+				ADA108DD173D0E4A002B882F /* VBLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
