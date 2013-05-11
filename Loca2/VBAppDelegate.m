@@ -16,10 +16,30 @@
 @implementation VBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"applicationDidFinishLaunching: %@", launchOptions]];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"!! applicationDidFinishLaunching"]];
+    
     return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"applicationDidEnterBackground"]];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"applicationDidBecomeActive"]];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"applicationWillEnterForeground"]];
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"applicationWillResignActive"]];
 }
 
 #pragma mark - Local Notifications
@@ -34,21 +54,21 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
-    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didStart: %@", region]];
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didStartRegion: %@", region]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
-    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didEnter: %@", region]];
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didEnterRegion: %@", region]];
     [self postLocalNotificationWithText:[NSString stringWithFormat:@"Did enter %@", region.identifier]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didExit: %@", region]];
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didExitRegion: %@", region]];
     [self postLocalNotificationWithText:[NSString stringWithFormat:@"Did exit %@", region.identifier]];
 }
 
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
-    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didFail: %@ %@", region, error]];
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"didFailRegion: %@ %@", region, error]];
 }
 
 #pragma mark - Singleton

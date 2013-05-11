@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *VBLogDidLogNotification;
+extern NSString *VBLogItemKey;
 
 @interface VBLog : NSObject
 

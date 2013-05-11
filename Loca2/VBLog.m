@@ -11,17 +11,24 @@
 #define VBLogsKey @"VBLogs"
 
 NSString *VBLogDidLogNotification = @"VBLogDidLogNotification";
+NSString *VBLogItemKey = @"VBLogItemKey";
 
 @implementation VBLog {
     NSMutableArray *_logs;
 }
 
 - (void)log:(NSString *)text {
-    [_logs addObject:text];
+    NSDictionary *logItem = @{
+        @"text": text,
+        @"timestamp": [NSDate date]
+    };
+    
+    [_logs addObject:logItem];
     [self saveLogs];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:VBLogDidLogNotification
                                                         object:nil
-                                                      userInfo:@{@"item":text}];
+                                                      userInfo:@{VBLogItemKey: logItem}];
 }
 
 - (void)loadLogs {

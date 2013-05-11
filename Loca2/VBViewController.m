@@ -21,11 +21,17 @@
 
 @implementation VBViewController
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"awakeFromNib"]];
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"viewDidLoad"]];
     [super viewDidLoad];
     
     [self updateRegionCountLabel];
@@ -44,6 +50,16 @@
                                                object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"viewWillAppear"]];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[VBLog sharedLog] log:[NSString stringWithFormat:@"viewWillDisappear"]];
+    [super viewWillDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -56,12 +72,12 @@
 #pragma mark - Log
 
 - (void)didLog:(NSNotification *)notification {
-    [self addTextToLog:notification.userInfo[@"item"]];
+    [self addTextToLog:notification.userInfo[VBLogItemKey][@"text"]];
 }
 
 - (void)initialLoadLog {
-    for (NSString *text in [VBLog sharedLog].logs) {
-        [self addTextToLog:text];
+    for (NSDictionary *item in [VBLog sharedLog].logs) {
+        [self addTextToLog:item[@"text"]];
     }
 }
 
@@ -72,7 +88,6 @@
 #pragma mark - Regions on Map
 
 - (void)showRegions {
-    NSLog(@"showRegions");
     [self.mapView removeOverlays:self.mapView.overlays];
     NSSet *regions = [VBAppDelegate sharedDelegate].locationManager.monitoredRegions;
     for (CLRegion *region in regions) {
